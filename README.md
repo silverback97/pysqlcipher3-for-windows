@@ -7,9 +7,11 @@ This guide is a collection of information you learned online and from other peop
 *   [What is this?](#what-is-this)
 *   [Getting started](#getting-started)
     *   [Requirements](#requirements)
+    *   [Pre-Installation](#pre-installation)
     *   [Installation](#installation)
           *  [Fast Installation](#fast-installation)
           *  [Normal Installation](#normal-installation)
+          *  [Slow Installation](#slow-installation)
     *   [Build](#building-for-source)
 
 
@@ -33,11 +35,13 @@ on your system, with the process dependent on your operating system.
 * sqlcipher https://github.com/sqlcipher/sqlcipher
 * pysqlcipher3 https://github.com/rigglemania/pysqlcipher3
 
-### Installation
-First of all install the TLC package.<br>
-Then install the OpenSSL package.<br>
-Install Visual Studio and the Visual Studio Build Tools package.<br>
-***(refer to URLs in Requirements)***
+### Pre-Installation
+   1. Install the TLC package.<br>
+   2. Install the OpenSSL package.<br>
+   3. Install Visual Studio<br>
+   4. Visual Studio Build Tools package.<br>
+   
+_(refer to URLs in ***[requirements](#requirements)***)_<br>
 ***NB: please install the correct architecture of your OS (x86 or x64)***
 
 Set the system environment variable "OPENSSL_CONF":
@@ -70,7 +74,7 @@ to folder **C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Redist\MS
 <br>
 _The destination folder can change depending on the version of Visual Studio you have installed and on OS architecture. However, the path is very similar._
 
-
+### Installation
 #### Fast Installation
 In the _fast-installation_ folder you will find an embedded-python at your disposal: use it if you don't want to have to install python on your computer.<br>
 Unzip the file you find inside and use it as if it were a normal python.<br>
@@ -89,9 +93,12 @@ python setup.py build_amalgamation
 python setup.py install  
 ```
 
+#### Slow Installation
+If you want to have the latest version of pysqlcipher3 then you have to proceed to ***[Bulding](#building-for-source)***
+
 ### Building for source
 #### Building **sqlcipher**
-Download sqlcipher (see requirements), unzip it and locate yourself in the root.<br>
+Download sqlcipher (see [requirements](#requirements)), unzip it and locate yourself in the root.<br>
 Edit the Makefile.msc file like this:
 
 change this
@@ -136,7 +143,7 @@ nmake /f Makefile.msc
 ```
 
 #### Building **pysqlcipher3**
-Download pysqlcipher3 (see requirements), unzip it and locate yourself in the root.<br>
+Download pysqlcipher3 (see [requirements](#requirements)), unzip it and locate yourself in the root.<br>
 Create a folder inside it with the name **amalgamation**
 
 copy the data from sqlcipher (it was built earlier) and place it in _/pysqlcipher3/amalgamation_
@@ -146,7 +153,7 @@ Create the **sqlcipher** folder inside _/pysqlcipher3/src/python3_.
 
 Copy 4 files (***shell.c sqlite3.c sqlite.h sqliteext.h***) from **sqlite-amalgamation-3340100.zip** inside _/pysqlcipher3/src/python3/sqlcipher_
 
-Replace the **MODULE_NAME** value on all files in _/pysqlcipher3\src\python3_.<br>
+Replace the **MODULE_NAME** value on all files in _/pysqlcipher3/src/python3_.<br>
 ***Example:***<br>
 * FROM:<br>
 ![Diagram](doc/original.png)<br>
