@@ -38,8 +38,6 @@ on your system, with the process dependent on your operating system.
 ### Pre-Installation
    1. Install the TLC package.<br>
    2. Install the OpenSSL package.<br>
-   3. Install Visual Studio<br>
-   4. Visual Studio Build Tools package.<br>
    
 _(refer to URLs in ***[requirements](#requirements)***)_<br>
 ***NB: please install the correct architecture of your OS (x86 or x64)***
@@ -65,15 +63,6 @@ and make a copy of the following files and rename them like this:
 |libssl.def | ssleay32.def|
 |libssl.lib | ssleay32.lib|
 
-
-Copy the contents of the folder <br>
-**C:\Program Files\OpenSSL-Win64\include\openssl**  _(if 64 bit)_  <br>
-**C:\Program Files(x86)\OpenSSL-Win32\include\openssl**  _(if 32 bit)_ <br>
-<br>
-to folder **C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Redist\MSVC\14.36.32532\include**
-<br>
-_The destination folder can change depending on the version of Visual Studio you have installed and on OS architecture. However, the path is very similar._
-
 ### Installation
 #### Fast Installation
 In the _fast-installation_ folder you will find an embedded-python at your disposal: use it if you don't want to have to install python on your computer.<br>
@@ -97,6 +86,19 @@ python setup.py install
 If you want to have the latest version of pysqlcipher3 then you have to proceed to ***[Bulding](#building-for-source)***
 
 ### Building for source
+#### Installation IDE
+   1. Install Visual Studio<br>
+   2. Install Visual Studio Build Tools package.<br>
+
+Copy the contents of the folder <br>
+**C:\Program Files\OpenSSL-Win64\include\openssl**  _(if 64 bit)_  <br>
+**C:\Program Files(x86)\OpenSSL-Win32\include\openssl**  _(if 32 bit)_ <br>
+<br>
+to folder **C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Redist\MSVC\14.36.32532\include**
+<br>
+_The destination folder can change depending on the version of Visual Studio you have installed and on OS architecture. However, the path is very similar._
+
+
 #### Building **sqlcipher**
 Download sqlcipher (see [requirements](#requirements)), unzip it and locate yourself in the root.<br>
 Edit the Makefile.msc file like this:
@@ -143,6 +145,7 @@ nmake /f Makefile.msc
 ```
 
 #### Building **pysqlcipher3**
+
 Download pysqlcipher3 (see [requirements](#requirements)), unzip it and locate yourself in the root.<br>
 Create a folder inside it with the name **amalgamation**
 
