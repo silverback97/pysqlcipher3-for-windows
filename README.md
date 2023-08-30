@@ -12,49 +12,54 @@ This guide is a collection of information you learned online and from other peop
           *  [Fast Installation](#fast-installation)
           *  [Normal Installation](#normal-installation)
           *  [Slow Installation](#slow-installation)
-    *   [Build](#building-for-source)
+ *   [Build](#building-for-source)
+     *   [Requirements](#building-requirements)
+     *   [Prepare to Build](#prepare-to-build)
+     *   [Building](#building)
 
 
 ## What is this
-Python interface to SQLCipher
+&ensp;Python interface to SQLCipher.
 
-pysqlcipher3 is an interface to the SQLite 3.x embedded relational
-database engine. It is almost fully compliant with the Python database API
-version 2.0. At the same time, it also exposes the unique features of
-SQLCipher. Prior to installation, libsqlcipher must already be installed
-on your system, with the process dependent on your operating system.
+&ensp;pysqlcipher3 is an interface to the SQLite 3.x embedded relational database engine.<br>
+&ensp;It is almost fully compliant with the Python database API version 2.0. At the same time, it also exposes the unique features of SQLCipher. <br>
+&ensp;Prior to installation, libsqlcipher must already be installed on your system, with the process dependent on your operating system.
 
 ## Getting Started
 
 ### Requirements
 * TLC https://www.activestate.com/products/tcl/downloads/
 * OpenSSL https://slproweb.com/products/Win32OpenSSL.html
-* Visual Studio >= 2019 https://shorturl.at/pwMSV
-* Visual Studio Build Tools >= 2019 https://shorturl.at/mBPQ3
 * Python >= 3.7 and <3.10
-* sqlcipher https://github.com/sqlcipher/sqlcipher
-* pysqlcipher3 https://github.com/rigglemania/pysqlcipher3
 
 ### Pre-Installation
    1. Install the TLC package.<br>
    2. Install the OpenSSL package.<br>
    
-_(refer to URLs in ***[requirements](#requirements)***)_<br>
-***NB: please install the correct architecture of your OS (x86 or x64)***
+&ensp;_(refer to URLs in ***[requirements](#requirements)***)_<br>
+&ensp;***NB: please install the correct architecture of your OS (x86 or x64)***
 
-Set the system environment variable "OPENSSL_CONF":
-* __for 32 bit__
-```
-C:\Program Files(x86)\OpenSSL-Win32\bin\openssl.cfg
-```
-* __for 64 bit__
-```
-C:\Program Files\OpenSSL-Win64\bin\openssl.cfg
-```
+&ensp;Set the system environment variable "OPENSSL_CONF": <br>
+   * __for 32 bit__
+   ```
+   C:\Program Files(x86)\OpenSSL-Win32\bin\openssl.cfg
+   ```
+   * __for 64 bit__
+   ```
+   C:\Program Files\OpenSSL-Win64\bin\openssl.cfg
+   ```
+<br>
 
 Go to the folder <br> 
-**"C:\Program Files\OpenSSL-Win64\lib"** _(if 64 bit)_<br> 
-**"C:\Program Files(x86)\OpenSSL-Win32\lib"** _(if 32 bit)_<br> 
+* __for 64 bit__
+```
+"C:\Program Files\OpenSSL-Win64\lib"
+```
+* __for 32 bit__
+```
+"C:\Program Files(x86)\OpenSSL-Win32\lib"
+```
+
 and make a copy of the following files and rename them like this:
 | Source  | Target |
 | ------------- | ------------- |
@@ -86,20 +91,34 @@ python setup.py install
 If you want to have the latest version of pysqlcipher3 then you have to proceed to ***[Bulding](#building-for-source)***
 
 ### Building for source
-#### Installation IDE
+#### Building Requirements
+   * Visual Studio >= 2019 https://shorturl.at/pwMSV
+   * Visual Studio Build Tools >= 2019 https://shorturl.at/mBPQ3
+   *  sqlcipher https://github.com/sqlcipher/sqlcipher
+   *  pysqlcipher3 https://github.com/rigglemania/pysqlcipher3
+
+     
+#### Prepare to Build
    1. Install Visual Studio<br>
    2. Install Visual Studio Build Tools package.<br>
 
-Copy the contents of the folder <br>
-**C:\Program Files\OpenSSL-Win64\include\openssl**  _(if 64 bit)_  <br>
-**C:\Program Files(x86)\OpenSSL-Win32\include\openssl**  _(if 32 bit)_ <br>
+Copy the contents of the folder <br><br>
+_64 bit_  <br>
+```
+**C:\Program Files\OpenSSL-Win64\include\openssl**
+```
+_32 bit_ <br>
+```
+**C:\Program Files(x86)\OpenSSL-Win32\include\openssl**
+```
+
 <br>
-to folder **C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Redist\MSVC\14.36.32532\include**
-<br>
+&nbsp; to folder **C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Redist\MSVC\14.36.32532\include** <br><br>
+
 _The destination folder can change depending on the version of Visual Studio you have installed and on OS architecture. However, the path is very similar._
 
-
-#### Building **sqlcipher**
+#### Building
+##### **sqlcipher**
 Download sqlcipher (see [requirements](#requirements)), unzip it and locate yourself in the root.<br>
 Edit the Makefile.msc file like this:
 
@@ -144,7 +163,7 @@ nmake /f Makefile.msc clean
 nmake /f Makefile.msc
 ```
 
-#### Building **pysqlcipher3**
+##### **pysqlcipher3**
 
 Download pysqlcipher3 (see [requirements](#requirements)), unzip it and locate yourself in the root.<br>
 Create a folder inside it with the name **amalgamation**
