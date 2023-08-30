@@ -105,11 +105,11 @@ If you want to have the latest version of pysqlcipher3 then you have to proceed 
 Copy the contents of the folder <br><br>
 * __for 64 bit__
 ```
-**C:\Program Files\OpenSSL-Win64\include\openssl**
+C:\Program Files\OpenSSL-Win64\include\openssl
 ```
 * __for 32 bit__
 ```
-**C:\Program Files(x86)\OpenSSL-Win32\include\openssl**
+C:\Program Files(x86)\OpenSSL-Win32\include\openssl
 ```
 
 <br>
