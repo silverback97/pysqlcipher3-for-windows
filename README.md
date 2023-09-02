@@ -113,13 +113,13 @@ C:\Program Files(x86)\OpenSSL-Win32\include\openssl
 ```
 
 <br>
-&nbsp; to folder **C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Redist\MSVC\14.36.32532\include** <br><br>
+&nbsp; to folder C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Redist\MSVC\14.36.32532\include <br><br>
 
 _The destination folder can change depending on the version of Visual Studio you have installed and on OS architecture. However, the path is very similar._
 
 #### Building
 ##### **sqlcipher**
-Download sqlcipher (see [requirements](#requirements)), unzip it and locate yourself in the root.<br>
+Download sqlcipher (see [requirements](#building-requirements)), unzip it and locate yourself in the root.<br>
 Edit the Makefile.msc file like this:
 
 change this
@@ -165,7 +165,7 @@ nmake /f Makefile.msc
 
 ##### **pysqlcipher3**
 
-Download pysqlcipher3 (see [requirements](#requirements)), unzip it and locate yourself in the root.<br>
+Download pysqlcipher3 (see [requirements](#building-requirements)), unzip it and locate yourself in the root.<br>
 Create a folder inside it with the name **amalgamation**
 
 copy the data from sqlcipher (it was built earlier) and place it in _/pysqlcipher3/amalgamation_
